@@ -1,5 +1,9 @@
 class Question
-  attr_accessor :question, :solution
+  attr_accessor :equation, :solution
+  def initialize (equation, solution)
+    @equation = equation
+    @solution = solution
+  end
 
   # Generate 2 random numbers between 1 - 20
   randomNum1 = rand(1...20)
@@ -9,12 +13,8 @@ class Question
   operators = [:+, :-, :*, :/]
   randomOp = operators.sample
 
-  # Put these together to create a random question
-  @question = "What is #{randomNum1} #{randomOp} #{randomNum2}?"
-  puts @question
-
+  # Put these together to create a random equation
+  @equation = "What is #{randomNum1} #{randomOp} #{randomNum2}?"
   # Get the solution
   @solution = randomNum1.method(randomOp).(randomNum2)
-  puts @solution
- 
 end
